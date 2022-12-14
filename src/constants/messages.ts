@@ -1,0 +1,12 @@
+export const WELCOME_MESSAGE = 'Welcome to Formelife CMS';
+export const SELECT_RESOURCE_MESSAGE = 'Please, select resource page';
+export const LIMITED_PERMISSIONS_MAIN_MESSAGE = 'Sorry, your permissions are limited';
+export const LIMITED_PERMISSIONS_SECONDARY_MESSAGE = 'Please contact your administrator to extend your rights';
+export const SOME_ERROR_MAIN_MESSAGE = 'Sorry, something went wrong';
+export const PAGE_NOT_FOUND_MESSAGE = '404 Page not found';
+export const SOME_ERROR_SECONDARY_MESSAGE = 'Please try to reload page';
+export const WRONG_RESOURCES_URL_MAIN_MESSAGE = 'You have opened a non-existent page';
+export const WRONG_RESOURCES_URL_SECONDARY_MESSAGE = 'Please, use the navigation menu';
+export const WRONG_RESOURCES_URL_BUTTON_BLOCK_MESSAGE = 'Or click the button below to open the most similar page';
+export const INCORRECT_URL_ERROR = 'The URL was written incorrectly or content was either deleted or moved';
+export const UNKNOWN_ERROR = 'An error has occurred, please contact support.';

@@ -1,0 +1,170 @@
+@import '../../constants/style/style-constants.module';
+
+.ant-layout {
+  .ant-layout-header {
+    &.content-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: $secondary-background;
+      color: $secondary-text;
+
+      .content-header-left-block {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        svg {
+          fill: $secondary-text;
+        }
+      }
+    }
+  }
+}
+
+.trigger {
+  margin-left: 16px;
+  cursor: pointer;
+
+  .trigger-icon > svg {
+    fill: rgba(255, 255, 255, 1);
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.breadcrumbs {
+  margin: 16px;
+}
+
+.ant-layout {
+  .layout-content {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background: $primary-background;
+    color: $text-primary;
+  }
+
+  .ant-layout-sider {
+    &.base-layout-sider {
+      background: $secondary-background;
+      color: $secondary-text;
+
+      .logo {
+        display: grid;
+        column-gap: 10px;
+        padding: 0 24px;
+        grid-template-rows: 64px;
+        grid-template-columns: 32px auto;
+        align-items: center;
+        margin-bottom: 16px;
+        color: $secondary-text;
+        background: $secondary-background-active;
+        font-size: $font-size-xl;
+
+        .label {
+          color: $secondary-text;
+        }
+      }
+
+      .base-layout-nav-menu {
+        background: $secondary-background;
+        color: $secondary-text;
+
+        .ant-menu-item {
+          font-size: $font-size-sm;
+          background: $secondary-background;
+          color: $secondary-text;
+
+          &:hover {
+            background: $secondary-background-hover;
+          }
+
+          &.ant-menu-item-selected {
+            background: $secondary-background-active;
+            color: $secondary-text;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.side-menu-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 0 34px 24px 24px;
+  transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), margin 0.3s, color 0.3s;
+  width: 250px;
+  overflow: hidden;
+  font-size: 10px;
+
+  .side-menu-footer-title {
+    display: block;
+    padding-bottom: 3px;
+  }
+}
+
+.theme-icon {
+  width: 40px;
+  height: 30px;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.settings-menu-button {
+  background-color: $primary-background;
+  color: $text-primary;
+}
+
+.settings-menu-icon {
+  background-color: $primary-background;
+
+  svg {
+    fill: $text-primary;
+  }
+}
+
+.ant-dropdown {
+  .ant-dropdown-menu {
+    &.themes-dropdown {
+      background-color: $primary-background;
+      color: $text-primary;
+    }
+  }
+}
+
+.ant-dropdown {
+  .ant-dropdown-menu {
+    .ant-dropdown-menu-item {
+      &.theme-menu-item {
+        background-color: $primary-background;
+        color: $text-primary;
+        border-top: 1px solid $primary-background;
+        border-bottom: 1px solid $primary-background;
+      }
+    }
+
+    .ant-dropdown-menu-item-selected {
+      &.theme-menu-item {
+        border-top: 1px solid $text-primary;
+        border-bottom: 1px solid $text-primary;
+      }
+    }
+  }
+}
+
+

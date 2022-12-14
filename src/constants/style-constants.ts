@@ -1,0 +1,2 @@
+export const BASE_LAYOUT_HEADER_HEIGHT = 65;
+export const BASE_LAYOUT_CONTENT_PADDING = 10;

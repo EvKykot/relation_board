@@ -1,0 +1,166 @@
+// ****** PRIMARY COLORS ****** //
+$primary-backdrop: var(--primary-backdrop, hsla(220, 19%, 96%, 1));
+$primary-shadow: var(--primary-shadow, hsla(220, 19%, 80%, 1));
+$primary-background: var(--primary-background, hsla(0, 0%, 100%, 1));
+$primary-background-hover: var(--primary-background-hover, hsla(0, 0%, 93%, 1));
+$primary-background-active: var(--primary-background-active, hsla(0, 0%, 85%, 1));
+$primary-subHeader: var(--primary-subHeader, hsla(215, 12%, 94%, 1));
+$primary-header: var(--primary-header, hsla(215, 19%, 12%, 1));
+$primary-header-text: var(--primary-header-text, hsla(0, 0%, 90%, 1));
+
+// ****** SECONDARY COLORS ****** //
+$secondary-background: var(--secondary-background, hsla(215, 19%, 12%, 1));
+$secondary-background-hover: var(--secondary-background-hover, hsla(215, 15%, 17%, 1));
+$secondary-background-active: var(--secondary-background-active, hsla(215, 15%, 22%, 1));
+$secondary-background-border: var(--secondary-background-border, hsla(215, 15%, 27%, 1));
+$secondary-background-border-hover: var(--secondary-background-border-hover, hsla(215, 15%, 32%, 1));
+$secondary-text-header: var(--secondary-text-header, hsla(0, 0%, 70%, 1));
+$secondary-text: var(--secondary-text, hsla(0, 0%, 85%, 1));
+$secondary-text-hover: var(--secondary-text-hover, hsla(0, 0%, 100%, 1));
+
+// ****** TEXT COLORS ****** //
+$text-primary: var(--text-primary, hsla(215, 15%, 15%, 1));
+$text-secondary: var(--text-secondary, hsla(215, 5%, 35%, 1));
+$text-placeholder: var(--text-placeholder, hsla(0, 0%, 55%, 1));
+$text-dim: var(--text-dim, hsla(0, 0%, 80%, 1));
+$text-reverse: var(--text-reverse, hsla(0, 0%, 98%, 1));
+$text-link: var(--text-link, hsla(210, 100%, 80%, 1));
+
+
+// ****** BUTTONS PRIMARY ****** //
+$button-background: var(--text-primary, hsla(215, 15%, 15%, 1));
+$button-background-hover: var(--text-secondary, hsla(215, 5%, 35%, 1));
+$button-border: var(--text-placeholder, hsla(0, 0%, 55%, 1));
+$button-border-hover: var(--button-reverse-border, rgba(255, 255, 255, 0.36));
+$button-text: var(--text-reverse, hsla(0, 0%, 98%, 1));
+
+// ****** BUTTONS REVERSED ****** //
+$button-reverse-background: var(--button-reverse-background, rgba(255, 255, 255, 0.1));
+$button-reverse-background-hover: var(--button-reverse-background-hover, rgba(255, 255, 255, 0.2));
+$button-reverse-border: var(--button-reverse-border, rgba(255, 255, 255, 0.24));
+$button-reverse-border-hover: var(--button-reverse-border, rgba(255, 255, 255, 0.36));
+$button-reverse-text: var(--button-reverse-text, hsla(0, 0%, 100%, 1));
+
+// ****** BUTTONS WARNING ****** //
+$button-warning-off-background: var(--button-warning-off-background, #FFF6F6);
+$button-warning-off-background-hover: var(--button-warning-off-background-hover, #FFF6F6);
+$button-warning-off-border: var(--button-warning-off-border, #E0B4B4);
+$button-warning-off-border-hover: var(--button-warning-off-border-hover, #E0B4B4);
+$button-warning-off-text: var(--button-warning-off-text, #9F3A38);
+
+// ****** FIXED COLORS ****** //
+$fixed-black-color: hsla(215, 19%, 12%, 1);
+$fixed-text-black-color: hsla(215, 15%, 15%, 1);
+$fixed-text-light-black-color: hsla(215, 5%, 35%, 1);
+$fixed-white-color: hsla(0, 0%, 100%, 1);
+$fixed-blue-color: hsla(210, 100%, 50%, 1);
+$fixed-blue-30-color: hsla(210, 100%, 50%, 0.30);
+$fixed-red-color: hsla(0, 90%, 60%, 1);
+$fixed-red-30-color: hsla(0, 90%, 60%, 0.30);
+$fixed-grey-color:  hsla(270, 7%, 97%, 1);
+
+$backgroundPopup: rgba(0, 0, 0, 0.30);
+$backgroundShade: rgba(0, 0, 0, 0.40);
+
+// ****** SHADOWS ****** //
+$form-shadow: 0 8px 16px 2px rgba(25, 30, 37, 0.15);
+$panel-shadow: 1px 1px 4px 2px $primary-shadow;
+$tab-shadow: 1px -2px 4px 2px $primary-shadow;
+$shadow-focus-color-error: hsla(1, 55%, 75%, 1);
+
+// ****** TRANSITIONS ****** //
+$transition-fast: 50ms ease-in-out;
+$transition-ease-in-out: 160ms ease-in-out;
+$transition-chevron: 300ms ease;
+$transition-console: 260ms ease-in-out;
+$transition-linear: 160ms linear;
+$transition-linear-expand: 260ms linear;
+$transition-switch: 500ms linear;
+$transition-side-menu: 400ms ease;
+$transition-ease-expand: 1200ms ease-in-out;
+
+// ****** MARGINS & PADDINGS & BORDER RADIUS ****** //
+
+$button-radius: 4px;
+
+// ****** FIXED HEIGHTS ****** //
+
+$baseLayoutHeaderHeight: 65px;
+$baseLayoutContentPadding: 10px;
+$baseLayoutSiderWidth: 250px;
+
+// ****** CALCULATED HEIGHTS ****** //
+
+$topPadding: calc( #{$baseLayoutHeaderHeight} + #{$baseLayoutContentPadding});
+
+// ****** FONTS & ASSET PATHS ****** //
+
+$font-main: aktiv-grotesk, sans-serif;
+$font-awesome: 'FontAwesome';
+$font-monospace: 'Courier New',monospaced;
+$font-mimic-header: Aktiv Grotesk Corp, sans-serif;
+
+$font-thin: 400;
+$font-regular: 500;
+$font-medium: 700;
+$font-bold: 700;
+
+// ** Font Sizes --- Must match pixels and values ** //
+
+$font-size-xs: var(--font-size-xs, 1rem);
+$font-size-sm: var(--font-size-sm, 1.125rem);
+$font-size-md: var(--font-size-md, 1.25rem);
+$font-size-lg: var(--font-size-lg, 1.5rem);
+$font-size-xl: var(--font-size-xl, 1.75rem);
+$font-size-2xl: var(--font-size-2xl, 2.25rem);
+$font-size-3xl: var(--font-size-3xl, 2.5rem);
+$font-size-4xl: var(--font-size-4xl, 3rem);
+
+:export {
+  // *** Font Family
+  fontMain: $font-main;
+  fontAwesome: $font-awesome;
+
+  // *** Font Weights
+  fontThin: $font-thin;
+  fontRegular: $font-regular;
+  fontMedium: $font-medium;
+  fontBold: $font-bold;
+
+  // *** Colors
+  textPrimaryColor: $text-primary;
+  textSecondaryColor: $text-secondary;
+  textPlaceholderColor: $text-placeholder;
+  textDimColor: $text-dim;
+  textReverseColor: $button-reverse-text;
+  buttonSecondaryBorderColor: $primary-background-active;
+  componentHeaderColor: $primary-header;
+  componentHeaderTextColor: $primary-header-text;
+  componentSubHeaderColor: $primary-subHeader;
+  dropdownHeaderTextColor: $text-primary;
+  selectionBoxLightColor: $text-dim;
+  selectionBoxColor: $text-secondary;
+  reverseBoxColor: $text-dim;
+  chartCrosshairColor: $text-dim;
+  darkZeroLine: $text-secondary;
+  lightZeroLine: $text-placeholder;
+  blackTextColor: 'hsla(215, 19%, 12%, 1)';
+  whiteTextColor: white;
+  primaryBackdrop: $primary-backdrop;
+
+  // *** Dimensions
+  baseLayoutHeaderHeight: $baseLayoutHeaderHeight;
+  baseLayoutContentPadding: $baseLayoutContentPadding;
+  topPadding: $topPadding;
+  baseLayoutSiderWidth: $baseLayoutSiderWidth;
+
+  // *** Font Sizes
+  fontSizeXs: $font-size-xs;
+  fontSizeSm: $font-size-sm;
+  fontSizeMd: $font-size-md;
+  fontSizeLg: $font-size-lg;
+  fontSizeXl: $font-size-xl;
+  fontSize2xl: $font-size-2xl;
+  fontSize3xl: $font-size-3xl;
+  fontSize4xl: $font-size-4xl;
+}
