@@ -23,23 +23,23 @@ export function Counter() {
   return (
     <div>
       <div className={styles.row}>
-        <button className={styles.button} aria-label="Decrement value" onClick={onDecrement}>
+        <button type="button" className={styles.button} aria-label="Decrement value" onClick={onDecrement}>
           -
         </button>
         <span className={styles.value}>{count}</span>
-        <button className={styles.button} aria-label="Increment value" onClick={onIncrement}>
+        <button type="button" className={styles.button} aria-label="Increment value" onClick={onIncrement}>
           +
         </button>
       </div>
       <div className={styles.row}>
         <input className={styles.textbox} aria-label="Set increment amount" value={incrementAmount} onChange={onSetIncrementAmount} />
-        <button className={styles.button} onClick={onIncrementByAmount}>
+        <button type="button" className={styles.button} onClick={onIncrementByAmount}>
           Add Amount
         </button>
-        <button className={styles.asyncButton} onClick={onIncrementAsync}>
+        <button type="button" className={styles.asyncButton} onClick={onIncrementAsync}>
           Add Async
         </button>
-        <button className={styles.button} onClick={onIncrementIfOdd}>
+        <button type="button" className={styles.button} onClick={onIncrementIfOdd}>
           Add If Odd
         </button>
       </div>

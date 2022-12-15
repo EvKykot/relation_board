@@ -9,7 +9,6 @@ import { selectIsSideMenuCollapsed } from '../../redux/settings/settings-selecto
 import styleConstants from '../../constants/style/style-constants.module.scss';
 import MainLogo from '../../components/main-logo';
 import './base-layout.scss';
-import { useContainerSize } from '../../hooks/use-container-size';
 
 const SideMenu = () => {
   const navigate = useNavigate();
@@ -57,7 +56,9 @@ const SideMenu = () => {
         // selectedKeys={[selectedKey]}
         openKeys={openKeys}
         items={menuItems}
-        onOpenChange={() => {}}
+        onOpenChange={() => {
+          //
+        }}
       />
     </Layout.Sider>
   );
