@@ -1,5 +1,4 @@
-export const WELCOME_MESSAGE = 'Welcome to Formelife CMS';
-export const SELECT_RESOURCE_MESSAGE = 'Please, select resource page';
+export const WELCOME_MESSAGE = 'Welcome to boilerplate';
 export const LIMITED_PERMISSIONS_MAIN_MESSAGE = 'Sorry, your permissions are limited';
 export const LIMITED_PERMISSIONS_SECONDARY_MESSAGE = 'Please contact your administrator to extend your rights';
 export const SOME_ERROR_MAIN_MESSAGE = 'Sorry, something went wrong';

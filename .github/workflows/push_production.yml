@@ -1,0 +1,23 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  test:
+    uses: boilerplate/.github/workflows/pull_request.yml@master
+    with:
+      REACT_APP_API_URL: https://api.production.test.net/v1/cms
+      REACT_APP_COMMON_API_URL: https://api.production.test.net/v1
+  deploy:
+    uses: boilerplate/.github/workflows/deploy.yml@master
+    with:
+      environment: production
+      environment_url: https://cms.production.test.net/
+      version: ${{ needs.test.outputs.version }}
+    secrets:
+      GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+    needs:
+      - test

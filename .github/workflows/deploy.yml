@@ -1,0 +1,40 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+      environment_url:
+        type: string
+        required: true
+      version:
+        type: string
+        required: true
+    secrets:
+      GCP_SA_KEY:
+        required: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ inputs.environment_url }}
+    steps:
+      - name: Restore Build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+
+      - name: Unarchive Build
+        run: tar -xvf build.tar build
+
+      - name: Deploy ${{ inputs.version }}
+        uses: omppye-tech/gcp-storage-sync@master
+        with:
+          args: -d
+        env:
+          GCP_SERVICE_ACCOUNT_KEY_FILE: ${{ secrets.GCP_SA_KEY }}
+          GCP_STORAGE_BUCKET: boilerplate-${{ inputs.environment }}
+          SOURCE_DIR: "build"

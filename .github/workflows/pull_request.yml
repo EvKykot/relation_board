@@ -1,0 +1,115 @@
+name: Pull Request Validation
+
+on:
+  pull_request:
+  workflow_call:
+    inputs:
+      REACT_APP_AUTH0_DOMAIN:
+        type: string
+        required: true
+      REACT_APP_AUTH0_CLIENT_ID:
+        type: string
+        required: true
+      REACT_APP_API_URL:
+        type: string
+        required: true
+      REACT_APP_COMMON_API_URL:
+        type: string
+        required: true
+      store_build_for_deploy:
+        default: true
+        type: boolean
+        required: false
+    outputs:
+      version:
+        value: ${{ jobs.test.outputs.version }}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set REACT_APP_VERSION
+        id: set_version
+        run: |
+          echo "REACT_APP_VERSION=$(git describe --tags --exclude="v*" | sed -e 's/-/./' -e 's/-g.*//' -e 's/^/v/')" >> $GITHUB_ENV
+          echo "::set-output name=version::$(git describe --tags --exclude="v*" | sed -e 's/-/./' -e 's/-g.*//' -e 's/^/v/')"
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.16.0
+          cache: ''
+
+      - name: Add cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Get current date
+        id: date
+        run: |
+          echo "::set-output name=today::$(date +%F)"
+          echo "::set-output name=yesterday::$(date -d '1 days ago' +%F)"
+
+      - name: Cache eslint and prettier
+        uses: actions/cache@v3
+        with:
+          path: |
+            .eslintcache
+            node_modules/.cache/prettier/.prettier-cache
+          key: list-cache-${{ steps.date.outputs.today }}
+          restore-keys: list-cache-${{ steps.date.outputs.yesterday }}
+
+      - name: Prettier
+        run: npm run prettier
+
+      - name: Eslint
+        run: npm run eslint
+
+      - name: Types Check
+        run: npm run typing
+
+      - name: Test
+        run: npm run test
+        env:
+          CI: true
+          PORT: 8082
+          REACT_APP_API_URL: http://localhost:8085/v1/cms
+          REACT_APP_COMMON_API_URL: http://localhost:8085/v1
+
+      - name: Build for Pull
+        if: inputs.store_build_for_deploy != true
+        run: npm run build
+        env:
+          REACT_APP_API_URL: http://localhost:8085/v1/cms
+          REACT_APP_COMMON_API_URL: http://localhost:8085/v1
+
+      - name: Build for Deploy
+        if: inputs.store_build_for_deploy
+        run: npm run build
+        env:
+          REACT_APP_API_URL: ${{ inputs.REACT_APP_API_URL }}
+          REACT_APP_COMMON_API_URL: ${{ inputs.REACT_APP_COMMON_API_URL }}
+
+      - name: Archive Build for Deploy
+        if: inputs.store_build_for_deploy
+        run: tar -cvf build.tar build
+
+      - name: Store Build for Deploy
+        if: inputs.store_build_for_deploy
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build.tar
+    outputs:
+      version: ${{ steps.set_version.outputs.version }}
