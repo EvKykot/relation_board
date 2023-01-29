@@ -1,0 +1,15 @@
+@import '../../constants/style/style-constants.module';
+
+.ant-btn-primary {
+  &.button {
+    color: $button-text;
+    border-color: $button-border;
+    background-color: $button-background;
+
+    &:hover {
+      color: $button-text;
+      background-color: $button-background-hover;
+      border-color: $button-border-hover;
+    }
+  }
+}

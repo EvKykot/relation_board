@@ -1,6 +1,5 @@
 import React, {FC, memo} from 'react';
 import { Node, Position } from 'reactflow';
-import { nanoid } from "@reduxjs/toolkit";
 
 import NodeHandle from "../../node-handle/node-handle";
 
@@ -14,7 +13,6 @@ type ColorSelectorNodeProps = Pick<Node, 'data'> & {
 const ColorSelectorNode: FC<ColorSelectorNodeProps> = memo(({ data, isConnectable }) => (
   <div className="custom-node">
     <NodeHandle
-      id={nanoid()}
       type="target"
       position={Position.Left}
       isConnectable={isConnectable}
@@ -24,7 +22,6 @@ const ColorSelectorNode: FC<ColorSelectorNodeProps> = memo(({ data, isConnectabl
     </div>
     <input className="nodrag" type="color" defaultValue={data.color} onChange={data.onChange}  />
     <NodeHandle
-      id={nanoid()}
       type="source"
       position={Position.Right}
       isConnectable={isConnectable}

@@ -1,45 +1,31 @@
-import React, { DragEvent, useCallback, useRef, useState } from 'react';
+import React, {DragEvent, useCallback, useEffect, useRef, useState} from 'react';
+import ReactFlow, { addEdge, Controls, OnConnect, ReactFlowInstance, Position, Background, BackgroundVariant, useViewport } from 'reactflow';
 import { nanoid } from "@reduxjs/toolkit";
-import ReactFlow, {
-  ReactFlowProvider,
-  addEdge,
-  useNodesState,
-  useEdgesState,
-  Controls,
-  OnConnect,
-  OnNodesChange,
-  OnEdgesChange,
-  ReactFlowInstance,
-  EdgeChange,
-  Position,
-  Dimensions,
-  Background,
-  BackgroundVariant,
-  Node,
-} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import {selectNodeTemplatesMap, selectNodeTypes} from "../../redux/node-templates/node-templates-selectors";
-import { makeUseStructuredSelector } from "../../hooks/make-use-structured-selector";
-import { selectEdges, selectNodes } from "../../redux/board/board-selectors";
+import useDebounce from "../../hooks/use-debounce";
 import { REACT_FLOW_APP } from "../../constants/react-flow-board";
 import { makeUseActions } from "../../hooks/use-actions";
-import {addNode, changeEdges, changeNodes, setEdges} from "../../redux/board/board-reducer";
+import { NodeTemplateTypes } from "../../redux/node-templates/node-templates-types";
+import { selectEdges, selectNodes, selectViewport} from "../../redux/board/board-selectors";
+import { makeUseStructuredSelector } from "../../hooks/make-use-structured-selector";
+import { selectNodeTemplatesMap, selectNodeTypes } from "../../redux/node-templates/node-templates-selectors";
+import { addNode, changeEdges, changeNodes, setEdges, setViewport } from "../../redux/board/board-reducer";
 
-import ColorSelectorNode from "../../components/nodes/color-selector-node/color-selector-node";
+import TextNode from "../../components/nodes/text-node/text-node";
 import InputNode from "../../components/nodes/input-node/input-node";
 import OutputNode from "../../components/nodes/output-node/output-node";
+import ColorSelectorNode from "../../components/nodes/color-selector-node/color-selector-node";
 
 import './board.scss';
 import 'reactflow/dist/style.css';
-import {NodeTemplateTypes} from "../../redux/node-templates/node-templates-types";
-import TextNode from "../../components/nodes/text-node/text-node";
 
 const useBoardPageSelectors = makeUseStructuredSelector({
   nodes: selectNodes,
   edges: selectEdges,
-  nodeTemplatesMap: selectNodeTemplatesMap,
   nodeTypes: selectNodeTypes,
+  nodeTemplatesMap: selectNodeTemplatesMap,
+  viewport: selectViewport,
 });
 
 const useBoardActions = makeUseActions({
@@ -47,25 +33,31 @@ const useBoardActions = makeUseActions({
   onSetEdges: setEdges,
   onChangeNodes: changeNodes,
   onChangeEdges: changeEdges,
+  onSetViewport: setViewport,
 });
 
 const nodeTypes = {
   [NodeTemplateTypes.input]: InputNode,
   [NodeTemplateTypes.output]: OutputNode,
-  [NodeTemplateTypes.selectorNode]: ColorSelectorNode,
   [NodeTemplateTypes.textNode]: TextNode,
-  // input: InputNode,
-  // output: OutputNode,
-  // selectorNode: ColorSelectorNode,
-  // textNode: TextNode,
+  [NodeTemplateTypes.selectorNode]: ColorSelectorNode,
 };
 
 const BoardPage = () => {
-  const { nodes, edges, nodeTemplatesMap } = useBoardPageSelectors();
-  const { onAddNode, onSetEdges, onChangeNodes, onChangeEdges } = useBoardActions();
+  const { nodes, edges, viewport, nodeTemplatesMap } = useBoardPageSelectors();
+  const { onAddNode, onSetEdges, onChangeNodes, onChangeEdges, onSetViewport } = useBoardActions();
 
+  const viewportData = useViewport();
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
+
+  const viewportX = useDebounce(viewportData.x);
+  const viewportY = useDebounce(viewportData.y);
+  const viewportZoom = useDebounce(viewportData.zoom);
+
+  useEffect(() => {
+    onSetViewport({ x: viewportX, y: viewportY, zoom: viewportZoom });
+  }, [viewportX, viewportY, viewportZoom, onSetViewport]);
 
   const onConnect: OnConnect = useCallback((params) => (
     onSetEdges(addEdge(params, edges))
@@ -113,6 +105,7 @@ const BoardPage = () => {
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
+        defaultViewport={viewport}
         onDrop={onDrop}
         onConnect={onConnect}
         onDragOver={onDragOver}

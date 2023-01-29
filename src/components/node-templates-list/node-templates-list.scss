@@ -1,9 +1,19 @@
 @import '../../constants/style/style-constants.module';
 
+:where(.css-dev-only-do-not-override-1hyej8k).ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: $secondary-background-active;
+  padding: 15px 0;
+}
+
 .ant-layout .ant-layout-sider.base-layout-sider .base-layout-nav-menu .ant-menu-item {
   &.ant-menu-item-only-child,
   &.node-list-item {
     padding: 5px 10px !important;
     background-color: transparent;
   }
+}
+
+.autocomplete-search {
+  width: 100%;
+  padding: 20px;
 }

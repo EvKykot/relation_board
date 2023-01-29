@@ -1,6 +1,5 @@
 import React, {FC, memo} from 'react';
 import { Node, Position } from 'reactflow';
-import { nanoid } from "@reduxjs/toolkit";
 
 import NodeHandle from "../../node-handle/node-handle";
 
@@ -15,7 +14,6 @@ const InputNode: FC<InputNodeProps> = memo(({ data, isConnectable }) => {
     <div className="custom-node input-node">
       <div>{data.label || 'Input node'}</div>
       <NodeHandle
-        id={nanoid()}
         type="source"
         position={Position.Right}
         isConnectable={isConnectable}

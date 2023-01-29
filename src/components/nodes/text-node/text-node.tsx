@@ -1,6 +1,5 @@
 import React, {ChangeEvent, FC, memo, useCallback} from 'react';
 import { Node, Position } from 'reactflow';
-import { nanoid } from "@reduxjs/toolkit";
 
 import { useAction } from "../../../hooks/use-actions";
 import { updateNodeData } from "../../../redux/board/board-reducer";
@@ -24,7 +23,6 @@ const TextNode: FC<TextNodeProps> = memo((props) => {
   return (
     <div className="custom-node text-node">
       <NodeHandle
-        id={nanoid()}
         type="target"
         position={Position.Left}
         isConnectable={isConnectable}
@@ -33,7 +31,6 @@ const TextNode: FC<TextNodeProps> = memo((props) => {
         <input id="text" name="text" value={data?.label} onChange={onChangeNodeLabel} />
       </div>
       <NodeHandle
-        id={nanoid()}
         type="source"
         position={Position.Right}
         isConnectable={isConnectable}

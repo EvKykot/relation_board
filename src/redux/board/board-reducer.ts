@@ -1,18 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Node, Edge, EdgeChange, NodeChange } from "reactflow";
+import { Edge, EdgeChange, Node, NodeChange, Viewport } from "reactflow";
 import { keyBy } from "lodash";
 
-import { BoardState } from "./board-types";
 import { NodeTemplateTypes } from "../node-templates/node-templates-types";
-
-const initialState: BoardState = {
-  nodes: [],
-  edges: [],
-};
+import { getInitialState } from "./board-utils";
+import {DEFAULT_BOARD_STATE} from "./board-constants";
 
 export const boardSlice = createSlice({
   name: 'board',
-  initialState,
+  initialState: getInitialState(),
   reducers: {
     addNode: (state, action: PayloadAction<Node>) => {
       state.nodes = [...state.nodes, action.payload];
@@ -44,6 +40,10 @@ export const boardSlice = createSlice({
         return !edgeChanges ? edge : { ...edge, ...edgeChanges };
       });
     },
+    setViewport: (state, action: PayloadAction<Viewport>) => {
+      state.viewport = action.payload;
+    },
+    clearBoard: () => ({ ...DEFAULT_BOARD_STATE }),
   }
 });
 
@@ -52,7 +52,9 @@ export const {
   changeNodes,
   updateNodeData,
   setEdges,
-  changeEdges
+  changeEdges,
+  setViewport,
+  clearBoard
 } = boardSlice.actions;
 
 export default boardSlice.reducer;

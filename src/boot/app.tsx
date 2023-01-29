@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 
 import Router from './router';
 import AppProviders from './app-providers';
-import BaseLayout from '../containers/base-layout/base-layout';
+import BaseLayout from '../layouts/base-layout/base-layout';
 import './app.scss';
 
 const App = () => (
