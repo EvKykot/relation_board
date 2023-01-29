@@ -1,0 +1,7 @@
+@import '../../../constants/style/style-constants.module';
+
+.custom-node {
+  &.input-node {
+    background-color: $fixed-green-color;
+  }
+}

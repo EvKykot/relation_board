@@ -1,0 +1,17 @@
+@import '../../constants/style/style-constants.module';
+
+.custom-node {
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid $primary-background;
+  background: $fixed-white-color;
+}
+
+.react-flow__node-textNode,
+.react-flow__node-input,
+.react-flow__node-output {
+  padding: 0;
+  background-color: transparent;
+}

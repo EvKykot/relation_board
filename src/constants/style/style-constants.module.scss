@@ -58,6 +58,7 @@ $fixed-blue-30-color: hsla(210, 100%, 50%, 0.30);
 $fixed-red-color: hsla(0, 90%, 60%, 1);
 $fixed-red-30-color: hsla(0, 90%, 60%, 0.30);
 $fixed-grey-color:  hsla(270, 7%, 97%, 1);
+$fixed-green-color:  hsla(155, 67%, 45%, 1);
 
 $backgroundPopup: rgba(0, 0, 0, 0.30);
 $backgroundShade: rgba(0, 0, 0, 0.40);
@@ -87,7 +88,7 @@ $button-radius: 4px;
 
 $baseLayoutHeaderHeight: 65px;
 $baseLayoutContentPadding: 10px;
-$baseLayoutSiderWidth: 250px;
+$baseLayoutSidebarWidth: 250px;
 
 // ****** CALCULATED HEIGHTS ****** //
 
@@ -147,12 +148,13 @@ $font-size-4xl: var(--font-size-4xl, 3rem);
   blackTextColor: 'hsla(215, 19%, 12%, 1)';
   whiteTextColor: white;
   primaryBackdrop: $primary-backdrop;
+  fixedBlackColor: $fixed-black-color;
 
   // *** Dimensions
   baseLayoutHeaderHeight: $baseLayoutHeaderHeight;
   baseLayoutContentPadding: $baseLayoutContentPadding;
   topPadding: $topPadding;
-  baseLayoutSiderWidth: $baseLayoutSiderWidth;
+  baseLayoutSidebarWidth: $baseLayoutSidebarWidth;
 
   // *** Font Sizes
   fontSizeXs: $font-size-xs;

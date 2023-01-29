@@ -76,6 +76,8 @@ module.exports = {
     'react/no-unstable-nested-components': 'off',
     'react/require-default-props': 'off',
     'react/destructuring-assignment': 'off',
+    'react/jsx-no-leaked-render': 'off',
+    'react/jsx-handler-names': 'off',
     'import/no-named-as-default-member': 'off',
     'react/self-closing-comp': 'warn',
     'react/no-multi-comp': 'off',

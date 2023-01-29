@@ -1,0 +1,10 @@
+@import '../../constants/style/style-constants.module';
+
+.ant-avatar {
+  &.ant-avatar-image,
+  &.main-logo {
+    >img {
+      background: $fixed-white-color;
+    }
+  }
+}

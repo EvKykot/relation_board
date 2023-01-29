@@ -6,10 +6,11 @@ import type { MenuProps } from 'antd';
 
 import { setTheme } from '../../redux/settings/settings-reducer';
 import { useAction } from '../../hooks/use-actions';
-import { selectTheme, selectThemeDetails } from '../../redux/settings/settings-selectors';
-import { Themes, themes, themesMap } from '../../constants/style/themes';
 import { usePreviousValue } from '../../hooks/use-previous-value';
 import { changeThemesConstants } from '../../utils/themes';
+import { Themes, themes, themesMap } from '../../constants/style/themes';
+import { selectTheme, selectThemeDetails } from '../../redux/settings/settings-selectors';
+
 import './base-layout.scss';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -41,7 +42,7 @@ const SettingsMenu = () => {
     return ({
       key,
       label,
-      className: 'theme-menu-item',
+      className: "theme-menu-item",
       icon: <ThemeIcon styles={iconStyles} className="theme-icon" />,
       onClick: (theme) => onSetTheme(theme.key as Themes)
     })

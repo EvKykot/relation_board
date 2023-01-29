@@ -1,0 +1,7 @@
+@import '../../../constants/style/style-constants.module';
+
+.custom-node {
+  &.output-node {
+    background-color: $fixed-blue-color;
+  }
+}

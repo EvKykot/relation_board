@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CounterPage from "../pages/counter/counter-page";
+import BoardPage from "../pages/board/board-page";
 
 const Router = () => (
   <Routes>
-    <Route path="/counter" element={<CounterPage />} />
+    <Route path="/" element={<BoardPage />} />
   </Routes>
 );
 

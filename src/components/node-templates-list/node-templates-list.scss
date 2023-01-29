@@ -1,0 +1,9 @@
+@import '../../constants/style/style-constants.module';
+
+.ant-layout .ant-layout-sider.base-layout-sider .base-layout-nav-menu .ant-menu-item {
+  &.ant-menu-item-only-child,
+  &.node-list-item {
+    padding: 5px 10px !important;
+    background-color: transparent;
+  }
+}
