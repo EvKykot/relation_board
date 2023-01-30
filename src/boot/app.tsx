@@ -1,21 +1,19 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import Router from './router';
 import AppProviders from './app-providers';
 import BaseLayout from '../layouts/base-layout/base-layout';
+import BoardPage from "../pages/board/board-page";
+
 import './app.scss';
 
 const App = () => (
   <AppProviders>
-    <BrowserRouter>
       <Layout className="app-layout">
         <BaseLayout>
-          <Router />
+          <BoardPage />
         </BaseLayout>
       </Layout>
-    </BrowserRouter>
   </AppProviders>
 );
 
