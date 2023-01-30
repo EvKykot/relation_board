@@ -2,6 +2,7 @@
   "name": "nutrisense-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://evkykot.github.io/relation_board/",
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@reduxjs/toolkit": "^1.8.3",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts docs",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
