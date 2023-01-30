@@ -14,3 +14,22 @@ export const selectBoardFlow = createSelector(
   selectViewport,
   (nodes, edges, viewport) => ({ nodes, edges, viewport })
 );
+
+// TODO: TBD
+export const selectHandleMap = createSelector(
+  selectEdges,
+  (edges) => (
+    edges.reduce((acc: { sourceMap: Record<string, number>; targetMap: Record<string, number> }, edge) => {
+      const { sourceMap, targetMap } = acc;
+      const { source, target } = edge;
+
+      if (source) acc.sourceMap[source] = sourceMap[source] ? sourceMap[source] + 1 : 1;
+      if (target) acc.targetMap[target] = targetMap[target] ? targetMap[target] + 1 : 1;
+
+      return acc;
+    }, {
+      sourceMap: {},
+      targetMap: {},
+    })
+  )
+);

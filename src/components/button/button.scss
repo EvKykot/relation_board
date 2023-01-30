@@ -6,6 +6,10 @@
     border-color: $button-border;
     background-color: $button-background;
 
+    &.ant-btn-dangerous {
+      color: $button-warning-off-text;
+    }
+
     &:hover {
       color: $button-text;
       background-color: $button-background-hover;

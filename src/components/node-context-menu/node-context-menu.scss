@@ -1,0 +1,11 @@
+.node-context-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+
+  .node-context-menu-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+}

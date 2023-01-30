@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, memo, useCallback} from 'react';
+import React, { ChangeEvent, FC, memo, useCallback } from 'react';
 import { Node, Position } from 'reactflow';
 
 import { useAction } from "../../../hooks/use-actions";

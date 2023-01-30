@@ -49,7 +49,7 @@ const BaseLayoutHeader = () => {
           They will be impossible to restore."
           onConfirm={onClearBoard}
         >
-          <Button>Clear</Button>
+          <Button danger>Clear</Button>
         </Popconfirm>
         <DownloadButton />
         <SettingsMenu />

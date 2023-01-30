@@ -35,10 +35,13 @@ export const boardSlice = createSlice({
     },
     changeEdges: (state, action: PayloadAction<EdgeChange[]>) => {
       const edgeChangesMap = keyBy(action.payload, 'id');
-      state.edges = state.edges.map((edge) => {
+      state.edges = state.edges.reduce((acc: Edge[], edge) => {
         const edgeChanges = edgeChangesMap[edge.id];
-        return !edgeChanges ? edge : { ...edge, ...edgeChanges };
-      });
+        const isEdgeRemoved = edgeChanges?.type === NodeTemplateTypes.remove;
+        if (!edgeChanges) return [...acc, edge];
+        if (isEdgeRemoved) return acc;
+        return [...acc, { ...edge, ...edgeChanges, type: edge.type }];
+      }, []);
     },
     setViewport: (state, action: PayloadAction<Viewport>) => {
       state.viewport = action.payload;

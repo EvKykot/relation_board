@@ -9,9 +9,8 @@
   background: $fixed-white-color;
 }
 
-.react-flow__node-textNode,
 .react-flow__node-input,
 .react-flow__node-output {
-  padding: 0;
-  background-color: transparent;
+  padding: 0 !important;
+  background-color: transparent !important;
 }
