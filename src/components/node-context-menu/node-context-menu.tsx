@@ -27,7 +27,7 @@ const NodeContextMenu: FC<NodeContextMenuProps> = ({ nodeId, children }) => {
   const node = nodesMap[nodeId];
   const onUpdateNodeData = useAction(updateNodeData);
 
-  const [label, setLabel] = useState(node.data.label);
+  const [label, setLabel] = useState(node?.data?.label || '');
   const [isVisible, setIsVisible] = useState(false);
 
   const onClose = () => setIsVisible(false);
@@ -35,9 +35,9 @@ const NodeContextMenu: FC<NodeContextMenuProps> = ({ nodeId, children }) => {
   const onChangeNodeLabel = (event: ChangeEvent<HTMLInputElement>) => setLabel(event.target.value);
 
   const onSave = useCallback(() => {
-    if (!node.id) return;
+    if (!node?.id) return;
     onUpdateNodeData({ id: node.id, data: { label }});
-  }, [label, node.id, onUpdateNodeData]);
+  }, [label, node?.id, onUpdateNodeData]);
 
   return (
     <Popover

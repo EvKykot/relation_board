@@ -4,9 +4,10 @@ import ReactFlow, { Controls, Background, BackgroundVariant } from 'reactflow';
 import { useBoardPage } from "./use-board-page";
 import { NodeTemplateTypes } from "../../redux/node-templates/node-templates-types";
 
+import TextNode from "../../components/nodes/text-node/text-node";
 import InputNode from "../../components/nodes/input-node/input-node";
 import OutputNode from "../../components/nodes/output-node/output-node";
-import TextNode from "../../components/nodes/text-node/text-node";
+import DefaultNode from "../../components/nodes/default-node/text-node";
 import ColorSelectorNode from "../../components/nodes/color-selector-node/color-selector-node";
 
 import 'reactflow/dist/style.css';
@@ -16,6 +17,7 @@ const nodeTypes = {
   [NodeTemplateTypes.input]: InputNode,
   [NodeTemplateTypes.output]: OutputNode,
   [NodeTemplateTypes.textNode]: TextNode,
+  [NodeTemplateTypes.default]: DefaultNode,
   [NodeTemplateTypes.selectorNode]: ColorSelectorNode,
 };
 

@@ -10,10 +10,12 @@ export const getParsedJsonData = (data: string | null | undefined, errorMessage?
   return null;
 }
 
-export const getStringifyJsonData = (data: unknown, errorMessage?: string, space?: number) => {
+export const getStringifyJsonData = (data: unknown | null | undefined, errorMessage?: string, space?: number) => {
+  if (!data) return null;
+
   try {
     return JSON.stringify(data, null, space);
-  } catch {
+  } catch (error) {
     console.log(errorMessage || 'Can\'t stringify data');
   }
 

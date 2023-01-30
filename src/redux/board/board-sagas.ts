@@ -7,8 +7,8 @@ import { getStringifyJsonData } from "../../utils/json-utils";
 
 function* saveBoardFlow() {
   const boardFlow: BoardFlow = yield select(selectBoardFlow);
-
   const flow = getStringifyJsonData(boardFlow, 'Can\'t save board flow to local storage', 2);
+
   if (flow) setBoardFlowToLS(flow);
 }
 

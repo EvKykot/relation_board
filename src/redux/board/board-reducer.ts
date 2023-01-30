@@ -4,7 +4,7 @@ import { keyBy } from "lodash";
 
 import { NodeTemplateTypes } from "../node-templates/node-templates-types";
 import { getInitialState } from "./board-utils";
-import {DEFAULT_BOARD_STATE} from "./board-constants";
+import { DEFAULT_BOARD_STATE } from "./board-constants";
 
 export const boardSlice = createSlice({
   name: 'board',
