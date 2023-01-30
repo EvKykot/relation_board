@@ -41,7 +41,7 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+docs/Release
 
 # Dependency directories
 node_modules/
@@ -138,7 +138,7 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/node,react
 
 .env
-/build
+/docs
 
 ## Directory-based project format:
 .idea/
